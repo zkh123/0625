@@ -1,0 +1,17 @@
+1,myblog为你的项目名称
+django-admin startproject myblog
+
+2,打开pycharm，可以看到已经有这个文件夹了。
+python manage.py startapp blog
+
+3,生成数据表： (注意：默认sqlite3的数据库在根目录下db.sqlite3)
+     a. 执行 python manage.py makemigrations app名（可选）
+     b. 执行 python manage.py migrate
+     d. 执行 python manage.py sqlmigrate 应用名 文件id 可以查看SQL语句
+            python manage.py sqlmigrate blog 0001
+BEGIN;
+--
+-- Create model Article
+--
+CREATE TABLE "blog_article" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(32) NOT NULL, "content" text NULL);
+COMMIT;
