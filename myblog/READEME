@@ -15,3 +15,9 @@ BEGIN;
 --
 CREATE TABLE "blog_article" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(32) NOT NULL, "content" text NULL);
 COMMIT;
+
+5,使用navicat打开db.sqllite3数据库。
+
+4,(your_env_name2) D:\github_workspace\0625\myblog>python manage.py createsuperuser
+   创建用户名 和 密码
+   admin admin123
