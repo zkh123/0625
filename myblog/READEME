@@ -18,6 +18,13 @@ COMMIT;
 
 5,使用navicat打开db.sqllite3数据库。
 
-4,(your_env_name2) D:\github_workspace\0625\myblog>python manage.py createsuperuser
+6,(your_env_name2) D:\github_workspace\0625\myblog>python manage.py createsuperuser
    创建用户名 和 密码
    admin admin123
+
+7,操作mysql数据库
+  conda install mysql-connector-python
+  例子如：D:\github_workspace\0625\myblog\mysql_demo\model\mysql_connector_python_base.py
+
+  conda install MySQL-python
+  例子如：D:\github_workspace\0625\myblog\mysql_demo\model\mysql_python_base.py

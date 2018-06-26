@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     # url(r'index/',bv.index),
     url(r'blog/', include('blog.urls')),
+    url(r'mysql/',include('mysql_demo.urls'))
 ]
