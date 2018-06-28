@@ -6,9 +6,8 @@ import numpy as np
 import json
 import requests
 import decimal
-import cdecimal
+# import cdecimal
 import datetime
-
 
 def json_merge(js_model, js_type):
     dict_input = {
@@ -38,7 +37,7 @@ def pd_to_json(dict_model):
             else:
                 #dict_model[k] = dict_model[k].fillna('')
                 for field in dict_model[k].columns:
-                    if isinstance(dict_model[k][field].iloc[0], cdecimal.Decimal):
+                    if isinstance(dict_model[k][field].iloc[0], decimal.Decimal):
                         dict_model[k][field] = dict_model[k][field].apply(
                             lambda x: decimal.Decimal(float(x)).quantize(decimal.Decimal('0.0000'))
                         )
@@ -82,7 +81,7 @@ def dict_to_json_bak(dict_model):
                 pass
             else:
                 for field in dict_model[k].columns:
-                    if isinstance(dict_model[k][field].iloc[0], cdecimal.Decimal):
+                    if isinstance(dict_model[k][field].iloc[0], decimal.Decimal):
                         dict_model[k][field] = dict_model[k][field].apply(
                             lambda x: decimal.Decimal(float(x)).quantize(decimal.Decimal('0.0000'))
                         )
@@ -117,7 +116,19 @@ def post_json(js, url):
                          ).content
 
 
+def dict_test():
+    # dict 类型 转化为 json 类型
+    dict_data = {'key':'kay_data','value':'value_data','abc':'8989ll','dict':{'a':'123','b':'456','c':{'d':'666','e':'上海'}}}
+    print(dict_to_json_bak(dict_data))
+    # {"abc": "8989ll", "dict": "{\"a\": \"123\", \"b\": \"456\"}", "value": "value_data", "key": "kay_data"}
+    # {"key": "kay_data", "value": "value_data", "abc": "8989ll", "dict": "{\"a\": \"123\", \"b\": \"456\", \"c\": \"{\\\"d\\\": \\\"666\\\", \\\"e\\\": \\\"888\\\"}\"}"}
+
+
+    # json 类型 转化为 dict 类型
+
+
 
 if __name__ == '__main__':
     print(pd.__version__)
     print(np.__version__)
+    dict_test()

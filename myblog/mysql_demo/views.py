@@ -8,7 +8,6 @@ import json
 from mysql_demo.model.mysql_connector_python_base import select_mysql2 as select02
 from mysql_demo.model.mysql_connector_python_base import select_mysql3 as select03
 from mysql_demo.model.mysql_connector_python_base import selectByUsername as select04
-from mysql_demo.model.mysql_python_base import select_mysql as select05
 
 def index(request):
     values=select02()
@@ -37,19 +36,6 @@ def index4(request):
         return HttpResponse('request username param is null')
     print('username : {}'.format(username))
     values=select04(username)
-    jsonData=json.dumps(values,encoding='utf-8',ensure_ascii=False)
-    print('type of valus : {}, value : {}, jsonData : {}'.format(type(values), values, jsonData))
-    return HttpResponse(jsonData)
-
-'''
-http://localhost:8000/mysql/index5/?username=上海公司
-'''
-def index5(request):
-    username = request.GET.get('username')
-    if username.strip() == '':
-        return HttpResponse('request username param is null')
-    print('username : {}'.format(username))
-    values=select05(username)
     jsonData=json.dumps(values,encoding='utf-8',ensure_ascii=False)
     print('type of valus : {}, value : {}, jsonData : {}'.format(type(values), values, jsonData))
     return HttpResponse(jsonData)

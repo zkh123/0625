@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url,include
 from django.contrib import admin
-# import blog.views as bv
+from .import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    # url(r'index/',bv.index),
+    url(r'hs/', views.index),
     url(r'blog/', include('blog.urls')),
-    url(r'mysql/',include('mysql_demo.urls'))
+    url(r'mysql/',include('mysql_demo.urls')),
 ]
