@@ -8,7 +8,8 @@ python manage.py startapp blog
      a. 执行 python manage.py makemigrations app名（可选）
      b. 执行 python manage.py migrate
      d. 执行 python manage.py sqlmigrate 应用名 文件id 可以查看SQL语句
-            python manage.py sqlmigrate blog 0001
+            python manage.py sqlmigrate blog 0001\
+
 BEGIN;
 --
 -- Create model Article

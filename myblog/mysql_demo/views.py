@@ -2,13 +2,13 @@
 from __future__ import unicode_literals
 
 from django.http import HttpResponse
+import json
+
 # Create your views here.
 from mysql_demo.model.mysql_connector_python_base import select_mysql2 as select02
 from mysql_demo.model.mysql_connector_python_base import select_mysql3 as select03
 from mysql_demo.model.mysql_connector_python_base import selectByUsername as select04
 from mysql_demo.model.mysql_python_base import select_mysql as select05
-
-import json
 
 def index(request):
     values=select02()

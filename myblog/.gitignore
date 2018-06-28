@@ -16,6 +16,7 @@
 *.iml
 *.ipr
 *.pyc
+*.swp
 
 ### NetBeans ###
 /nbproject/private/
